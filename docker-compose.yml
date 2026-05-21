@@ -1,0 +1,21 @@
+version: "3.8"
+
+services:
+  housekeeping-mainunit:
+    build: .
+    container_name: housekeeping-mainunit
+    environment:
+      - VIRTUAL_HOST=housekeeping-mainunit.webpunagaya.com
+      - VIRTUAL_PORT=4173
+      - LETSENCRYPT_HOST=housekeeping-mainunit.webpunagaya.com
+      - LETSENCRYPT_EMAIL=muhammadirfan187@outlook.com
+    expose:
+      - "4173"
+    networks:
+      - proxy
+    # depends_on:
+    #   - nginx-proxy
+
+networks:
+  proxy:
+    external: true
